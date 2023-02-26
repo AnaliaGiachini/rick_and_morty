@@ -1,0 +1,33 @@
+.cardImage {
+    border-radius: 20px;
+    width: 80%;
+    border-style: double;
+    border-color: azure;
+}
+
+/*Tarjeta*/
+.cardContainer {
+  background-color: rgba(255, 255, 255, 0.451);
+  border-radius: 10px;
+  width: 150px;
+  margin-right: 20px;
+  border-style: solid;
+  border-color: azure;
+}
+/*Boton de cerrar*/
+.close{
+  position: relative;
+  background-color:rgba(54, 37, 240, 0.829);
+  right: 0;
+  height: 30px;
+  width: 30px;
+}
+
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+

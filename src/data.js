@@ -1,3 +1,4 @@
+
 const characters = [
   {
     id: 2,
