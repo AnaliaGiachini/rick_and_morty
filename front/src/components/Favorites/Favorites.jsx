@@ -6,7 +6,7 @@ import { orderCards, filterCards } from '../../redux/actions'
 import React from 'react'
 
 const Favorites = () => {
-  const { allCharacters } = useSelector(state => state)
+  const { myFavorites } = useSelector(state => state)
   const dispatch = useDispatch()
 
   const handlerOrder = (event) => {
@@ -34,7 +34,7 @@ const Favorites = () => {
         </select>
       </div>
       {
-        allCharacters.map((character) => {
+        myFavorites.map((character) => {
           return (
             <div key={character.id} className={styles.cardContainer}>
               <div>

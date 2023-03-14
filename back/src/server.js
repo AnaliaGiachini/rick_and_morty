@@ -1,17 +1,16 @@
+const express = require('express')
+const server = express()
+const cors = require('cors')
+const PORT = 3001
+const router = require('./routes/index')
+const favsRouter = require('./routes/favsRouter')
 
-const http = require('http')
-const getCharById = require('./controllers/getCharById')
-const getCharDetail = require('./controllers/getCharDetail')
+// Middleware
+server.use(express.json())
+server.use(cors())
+server.use('/rickandmorty', router)
+server.use('/favs', favsRouter)
 
-// Crea y levanta el Server
-http.createServer((req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  if (req.url.includes('onsearch')) {
-    const id = req.url.split('/').at(-1)
-    getCharById(res, id)
-  }
-  if (req.url.includes('detail')) {
-    const id = req.url.split('/').at(-1)
-    getCharDetail(res, id)
-  }
-}).listen(3001, 'localhost')
+server.listen(PORT, () => {
+  console.log('Server raised in port ' + PORT)
+})

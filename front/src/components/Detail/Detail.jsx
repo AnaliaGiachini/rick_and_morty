@@ -10,6 +10,7 @@ const Detail = () => {
     fetch(`http://localhost:3001/rickandmorty/detail/${detailId}`)
       .then((response) => response.json())
       .then((char) => {
+        console.log('me responde el back', char)
         if (char.name) {
           setCharacter(char)
         } else {
