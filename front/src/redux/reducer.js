@@ -3,7 +3,8 @@ import { ADD_FAVORITE, DELETE_FAVORITE, FILTER, ORDER } from './action-types'
 
 const initialState = {
   myFavorites: [],
-  allCharacters: []
+  allCharacters: [],
+  errors: {}
 }
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -12,13 +13,15 @@ const reducer = (state = initialState, { type, payload }) => {
       return ({
         ...state,
         myFavorites: payload,
-        allCharacters: payload
+        allCharacters: payload,
+        errors: {}
       })
 
     case DELETE_FAVORITE:
       return ({
         ...state,
-        myFavorites: payload
+        myFavorites: payload,
+        errors: {}
       })
 
     case FILTER:
@@ -34,6 +37,18 @@ const reducer = (state = initialState, { type, payload }) => {
           payload === 'Ascendente'
             ? state.allCharacters.sort((a, b) => a.id - b.id)
             : state.allCharacters.sort((a, b) => b.id - a.id)
+      })
+
+    case 'GET_FAVS':
+      return ({
+        ...state,
+        myFavorites: payload,
+        errors: {}
+      })
+    case 'ERROR':
+      return ({
+        ...state,
+        errors: payload
       })
 
     default:

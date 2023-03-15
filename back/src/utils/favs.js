@@ -1,3 +1,3 @@
-let favs = []
+const favs = []
 
 module.exports = { favs }
